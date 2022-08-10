@@ -5,6 +5,7 @@ char	*ft_read(int fd,char *s)
 	int size;
 	size = read(fd, s, BUFFER_SIZE);
 	
+	
 }
 
 char	*get_next_line(int fd)
