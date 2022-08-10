@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:34 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/09 09:11:29 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/08/09 10:58:01 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 char	*read_buff (int fd, char *r)
 {
-<<<<<<< HEAD
-	int size;
-	size = read(fd, s, BUFFER_SIZE);
-	
-	
-=======
 	char *f;
 	size_t size;
 
@@ -42,7 +36,6 @@ char	*read_buff (int fd, char *r)
 
 	free(f);
 	return(r);
->>>>>>> 61c7f84ab6dc1786591d62ec7bf43c10ed9b934f
 }
 
 char	*toprint(char *p)
@@ -86,14 +79,14 @@ char	*lft(char *r)
 
 char	*get_next_line(int fd)
 {
-	static char *r;
+	static char *r[1024];
 	char *p;
 	
-	r = read_buff(fd, r);
-	if (!r || BUFFER_SIZE < 0)
+	r[fd] = read_buff(fd, r[fd]);
+	if (!r[fd] || BUFFER_SIZE < 0)
 		return (NULL);
-	p = toprint(r);
-	r = lft(r);
+	p = toprint(r[fd]);
+	r[fd] = lft(r[fd]);
 	return (p);
 	
 }

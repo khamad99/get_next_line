@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:45 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/09 08:43:13 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/08/09 10:47:26 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+#define GET_NEXT_LINE_BONUS_H
 
 #include <unistd.h>
 #include <stdlib.h>
