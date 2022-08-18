@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:34 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/09 10:58:01 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:46:20 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 char	*read_buff (int fd, char *r)
 {
 	char *f;
-	size_t size;
+	int size;
 
-	f = (char *) malloc(BUFFER_SIZE + 1);
+	f = (char *) calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!f)
 		return (NULL);
 	size = 1;
-
-	while (!ft_strchr(r, '\n') && size)
+	while (!ft_strchr(r, '\n', size) && size)
 	{
 		size = read(fd, f, BUFFER_SIZE);
 		if (size == -1)
@@ -33,7 +32,6 @@ char	*read_buff (int fd, char *r)
 		f[size] = '\0';
 		r = ft_strjoin(r, f);
 	}
-
 	free(f);
 	return(r);
 }
@@ -48,7 +46,7 @@ char	*toprint(char *p)
 		return (NULL);
 	while(p[i] != '\n' && p[i])
 		i++;
-	r = (char *) malloc(sizeof(char) * (i + 2));
+	r = (char *) calloc(i + 2 ,sizeof(char));
 	ft_strlcpy(r, p, (i + 2));
 	return (r);
 }
@@ -68,7 +66,7 @@ char	*lft(char *r)
 		free (r);
 		return (NULL);
 	}
-	l = (char *) malloc (sizeof(char) * (len - i));
+	l = (char *) calloc (len - i, sizeof(char));
 	if (!l)
 		return (NULL);
 	i++;

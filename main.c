@@ -5,9 +5,10 @@ int main(void)
 	int fd;
 	int i = 0;
 	fd = open("test.txt", O_RDWR);
-	while (i < 6)
+	char * r = get_next_line(fd);
+	while (r)
 	{
-		printf("%s", get_next_line(fd));
-		i++;
+		printf("%s", r);
+		r = get_next_line(fd);
 	}
 }
