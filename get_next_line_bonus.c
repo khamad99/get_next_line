@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:34 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/18 16:46:20 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/08/20 17:06:47 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*lft(char *r)
 		free (r);
 		return (NULL);
 	}
-	l = (char *) calloc (len - i, sizeof(char));
+	l = (char *) calloc (len - i + 1, sizeof(char));
 	if (!l)
 		return (NULL);
 	i++;
