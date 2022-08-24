@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:17 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/18 14:28:35 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/08/24 10:25:33 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 size_t	ft_strlen(char *s)
 {
-	if (!s)
-		return (0);
 	size_t	r;
 
+	if (!s)
+		return (0);
 	r = 0;
 	while (s[r])
 		r++;
@@ -37,7 +37,6 @@ char	*ft_strchr(char *s, int c, size_t i)
 	}
 	return (0);
 }
-
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -67,6 +66,7 @@ char	*ft_strjoin(char *s1, char *s2)
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
+
 	if (dstsize)
 	{
 		i = 0;
@@ -83,8 +83,8 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*r;
-	unsigned long i;
+	void			*r;
+	unsigned long	i;
 
 	i = 0;
 	if (size != 0 && count > SIZE_MAX / size)
