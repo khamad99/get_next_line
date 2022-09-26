@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:17 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/24 10:27:48 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/09/26 14:35:00 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1 = (char *) calloc(1, sizeof(char));
 		s1[0] = 0;
 	}
-	r = (char *) calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
+	r = (char *) calloc(ft_strlen(s1) + ft_strlen(s2) + 2, sizeof(char));
 	if (!s1 || !s2 || !r)
 		return (0);
 	i = 0;
@@ -60,6 +60,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[i])
 		r[ii++] = s2[i++];
 	r[ii] = 0;
+	free (s1);
 	return (r);
 }
 
