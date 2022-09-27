@@ -6,7 +6,7 @@
 /*   By: kalshaer <kalshaer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 08:26:34 by kalshaer          #+#    #+#             */
-/*   Updated: 2022/08/24 10:22:47 by kalshaer         ###   ########.fr       */
+/*   Updated: 2022/09/27 17:02:06 by kalshaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*read_buff(int fd, char *r)
 	char	*f;
 	int		size;
 
-	f = (char *)calloc(BUFFER_SIZE + 1, sizeof(char));
+	f = (char *) ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!f)
 		return (NULL);
 	size = 1;
@@ -46,7 +46,7 @@ char	*toprint(char *p)
 		return (NULL);
 	while (p[i] != '\n' && p[i])
 		i++;
-	r = (char *)calloc(i + 2, sizeof(char));
+	r = (char *)ft_calloc(i + 2, sizeof(char));
 	ft_strlcpy(r, p, (i + 2));
 	return (r);
 }
@@ -66,7 +66,7 @@ char	*lft(char *r)
 		free (r);
 		return (NULL);
 	}
-	l = (char *)calloc (len - i + 1, sizeof(char));
+	l = (char *) ft_calloc (len - i + 1, sizeof(char));
 	if (!l)
 		return (NULL);
 	i++;
@@ -77,13 +77,17 @@ char	*lft(char *r)
 
 char	*get_next_line(int fd)
 {
-	static char	*r[1024];
-	char		*p;
+	if (fd >= 0)
+	{
+		static char	*r[1024];
+		char		*p;
 
-	r[fd] = read_buff(fd, r[fd]);
-	if (!r[fd] || BUFFER_SIZE < 0)
-		return (NULL);
-	p = toprint(r[fd]);
-	r[fd] = lft(r[fd]);
-	return (p);
+		r[fd] = read_buff(fd, r[fd]);
+		if (!r[fd] || BUFFER_SIZE < 0)
+			return (NULL);
+		p = toprint(r[fd]);
+		r[fd] = lft(r[fd]);
+		return (p);
+	}
+	return (0);
 }
